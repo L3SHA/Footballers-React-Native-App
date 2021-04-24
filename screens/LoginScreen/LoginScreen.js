@@ -3,18 +3,18 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import firebase from '../../firebase/config'
-import { SliderBox } from "react-native-image-slider-box";
+//import { SliderBox } from "react-native-image-slider-box";
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const images = [
-        "https://reactjs.org/logo-og.png",
-        "https://reactjs.org/logo-og.png",
-        "https://reactjs.org/logo-og.png",
-        "https://reactjs.org/logo-og.png",
-        "https://reactjs.org/logo-og.png"
-    ]
+    // const images = [
+    //     "https://reactjs.org/logo-og.png",
+    //     "https://reactjs.org/logo-og.png",
+    //     "https://reactjs.org/logo-og.png",
+    //     "https://reactjs.org/logo-og.png",
+    //     "https://reactjs.org/logo-og.png"
+    // ]
 
     const onFooterLinkPress = () => {
         navigation.navigate('Registration')
@@ -84,7 +84,7 @@ export default function LoginScreen({navigation}) {
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
                 </View>
-                <SliderBox
+                {/* <SliderBox
                     images={images}
                     sliderBoxHeight={200}
                     onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}
@@ -93,7 +93,7 @@ export default function LoginScreen({navigation}) {
                     paginationBoxVerticalPadding={20}
                     autoplay
                     circleLoop
-                />
+                /> */}
             </KeyboardAwareScrollView>
         </View>
     )
