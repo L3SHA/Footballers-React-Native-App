@@ -5,7 +5,16 @@ import styles from './styles';
 import firebase from '../../firebase/config';  
 
 export default function RegistrationScreen({navigation}) {
-    const [fullName, setFullName] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [age, setAge] = useState('')
+    const [growth, setGrowth] = useState('')
+    const [weight, setWeight] = useState('')
+    const [club, setClub] = useState('')
+    const [gameNumber, setGameNumber] = useState('')
+    const [position, setPosition] = useState('')
+    const [latitude, setLatitude] = useState('')
+    const [longtitude, setLongtitude] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -28,14 +37,24 @@ export default function RegistrationScreen({navigation}) {
                 const data = {
                     id: uid,
                     email,
-                    fullName,
+                    firstName,
+                    lastName,
+                    age,
+                    growth,
+                    weight,
+                    club,
+                    position,
+                    latitude,
+                    longtitude,
+                    photo: 'https://reactjs.org/logo-og.png'
                 };
+                
                 const usersRef = firebase.firestore().collection('users')
-                console.log(JSON.stringify(data));
                 usersRef
                     .doc(uid)
                     .set(data)
                     .then(() => {
+                        
                         navigation.navigate('Home', {user: data})
                     })
                     .catch((error) => {
@@ -59,10 +78,91 @@ export default function RegistrationScreen({navigation}) {
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Full Name'
+                    placeholder='First Name'
                     placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setFullName(text)}
-                    value={fullName}
+                    onChangeText={(text) => setFirstName(text)}
+                    value={firstName}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Last Name'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setLastName(text)}
+                    value={lastName}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Age'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setAge(text)}
+                    value={age}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Growth'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setGrowth(text)}
+                    value={growth}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Weight'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setWeight(text)}
+                    value={weight}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Club'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setClub(text)}
+                    value={club}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Game Number'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setGameNumber(text)}
+                    value={gameNumber}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Position'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setPosition(text)}
+                    value={position}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Latitude'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setLatitude(text)}
+                    value={latitude}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Longtitude'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setLongtitude(text)}
+                    value={longtitude}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
